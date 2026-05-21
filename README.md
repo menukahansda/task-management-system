@@ -115,7 +115,7 @@ npm install
 ### Run Backend Server
 
 ```bash
-npm run dev
+npm start
 ```
 
 ---
@@ -123,7 +123,7 @@ npm run dev
 ### Run Frontend
 
 ```bash
-npm start
+npm run dev
 ```
 
 ---
