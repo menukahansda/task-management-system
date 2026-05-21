@@ -72,7 +72,21 @@ project-root/
 ├── frontend/
 │   ├── src/
 │   │   ├── components/
+│   │   │   ├── ProtectedRoute.jsx
+│   │   │   ├── TaskCard.jsx
+│   │   │   ├── TaskForm.jsx
+│   │   │
 │   │   ├── pages/
+│   │   │   ├── Dashboard.jsx
+│   │   │   ├── Login.jsx
+│   │   │   ├── Register.jsx
+│   │   │
+│   │   ├── services/
+│   │   │   ├── api.js
+│   │   │
+│   │   ├── utils/
+│   │   │   ├── auth.js
+│   │   │
 │   │   ├── App.jsx
 │   │   └── main.jsx
 │   │
@@ -80,6 +94,7 @@ project-root/
 │   └── package.json
 │
 ├── screenshots/
+├── task-management-api.postman_collection.json
 ├── README.md
 ```
 
@@ -110,22 +125,19 @@ npm install
 
 ---
 
-## Usage
+## Available Scripts
 
-### Run Backend Server
-
-```bash
-npm start
+### Backend
+``` bash
+npm run dev     # start in development mode
+npm start       # start production server
 ```
 
----
-
-### Run Frontend
-
-```bash
-npm run dev
+### Frontend
+``` bash
+npm run dev     # start React app (Vite)
+npm run build   # production build (optional)
 ```
-
 ---
 
 ## API Endpoints
