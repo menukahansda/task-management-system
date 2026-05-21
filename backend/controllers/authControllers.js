@@ -35,7 +35,7 @@ export const registerUser = async (req, res) => {
         });
 
         const token = jwt.sign(
-            {user_id: user._id, email: user.email, role: user.role},
+            {id: user._id, email: user.email, role: user.role},
             process.env.TOKEN_KEY,
             {expiresIn: "2h"}
         );
@@ -74,7 +74,7 @@ export const loginUser = async (req, res) => {
         const user = await User.findOne({ email: email.trim().toLowerCase() }).select("+password");
         if( user && (await bcrypt.compare(password, user.password))){
             const token = jwt.sign(
-                {user_id : user._id, email: user.email, role: user.role},
+                {id : user._id, email: user.email, role: user.role},
                 process.env.TOKEN_KEY,
                 {expiresIn: "2h"}
             );
