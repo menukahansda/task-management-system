@@ -164,7 +164,6 @@ npm start
 
 ## API Documentation
 
-- Swagger Documentation
 - Postman Collection included
 
 ---
