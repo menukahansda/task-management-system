@@ -1,22 +1,29 @@
 import jwt from "jsonwebtoken";
-import dotenv from "dotenv";
-dotenv.config();
-
 
 const auth = (req, res, next)=>{
-    let token = req.body.token || req.query.token || req.headers["x-access-token"];
-    if (!token && req.headers.authorization) {
-        token = req.headers.authorization.split(" ")[1];
+    const authHeader = req.headers.authorization;
+
+    if (!authHeader || !authHeader.startsWith("Bearer ")) {
+        return res.status(403).json({
+            success: false,
+            message: "Token required"
+        });
     }
-    if(!token){
-        return res.status(403).send("A token is required for authentication");
-    }
+
     try{
+        const token = authHeader.split(" ")[1];
         const decoded = jwt.verify(token, process.env.TOKEN_KEY);
-        req.user = decoded;
+        req.user = {
+            user_id: decoded.user_id,
+            email: decoded.email,
+            role: decoded.role
+        };
         next();
     }catch(err){
-        return res.status(401).send("Invalid token");
+        return res.status(401).json({
+            success: false,
+            message: "Invalid or expired token"
+        });
     }
 };
 
