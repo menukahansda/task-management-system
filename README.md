@@ -70,6 +70,9 @@ project-root/
 │   └── package.json
 │
 ├── frontend/
+│   ├── public
+│   │   ├── favicon.ico
+│   │   │
 │   ├── src/
 │   │   ├── components/
 │   │   │   ├── ProtectedRoute.jsx
@@ -92,6 +95,7 @@ project-root/
 │   │
 │   └── index.html
 │   └── package.json
+│   └── .env
 │
 ├── screenshots/
 ├── task-management-api.postman_collection.json
