@@ -33,9 +33,12 @@ A simple React frontend is included to:
 ## Screenshots
 Below are sample screenshots from the application:
 
-![Screenshot 1](screenshots/Screenshot-1.png)
-![Screenshot 2](screenshots/Screenshot-2.png)
-![Screenshot 3](screenshots/Screenshot-3.png)
+![Sign-up page](screenshots/sign-up-page.png)
+![Unsuccessful Registration](screenshots/unsuccessful-reg.png)
+![Successful Registration](screenshots/successful-reg.png)
+<!-- ![Unsuccessful Login](screenshots/unsuccessful-login.png) -->
+![Successful Login](screenshots/successful-login.png)
+![Dashboard](screenshots/dashboard.png)
 
 ---
 
