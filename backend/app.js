@@ -15,7 +15,11 @@ app.use('/api/v1/auth', authRoutes);
 app.use('/api/v1/tasks', taskRoutes);
 
 app.get("/", (req, res)=>{
-    res.status(200).send(`Go to ${process.env.FRONTEND_URL} to view the frontend`);
+    res.status(200).send(`
+        <a href="${process.env.FRONTEND_URL}" target="_blank">
+            Go to Frontend
+        </a>
+    `);
 });
 
 app.get("/welcome", auth, (req, res)=>{
