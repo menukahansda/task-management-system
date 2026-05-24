@@ -11,7 +11,7 @@ export default function Dashboard() {
     const fetchTasks = async () => {
       try {
         const res = await api.get("/tasks");
-        setTasks(res.data.data);
+        setTasks(res.data);
       } catch (error) {
         console.error("Error fetching tasks:", error);
       }
@@ -26,7 +26,7 @@ export default function Dashboard() {
   const handleCreateTask = async (taskData) => {
     try {
       const res = await api.post("/tasks", taskData);
-      setTasks((prev) => [...prev, res.data.data]);
+      setTasks((prev) => [...prev, res.data]);
     } catch (err) {
       console.error("Task creation failed:", err);
     }
