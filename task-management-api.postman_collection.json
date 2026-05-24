@@ -14,7 +14,7 @@
         "header": [],
         "body": {
           "mode": "raw",
-          "raw": "{\r\n  \"username\": \"menuka_hansda\",\r\n  \"email\": \"mh1@gmail.com\",\r\n  \"password\": \"15/K2c7An45whQ6\",\r\n  \"role\": \"user\"\r\n}",
+          "raw": "{\r\n  \"username\": \"menuka_hansda_3\",\r\n  \"email\": \"mh3@gmail.com\",\r\n  \"password\": \"8e7H84/*5R&hQ^jwu\",\r\n  \"role\": \"user\"\r\n}",
           "options": {
             "raw": {
               "language": "json"
@@ -22,15 +22,11 @@
           }
         },
         "url": {
-          "raw": "http://localhost:4000/api/v1/auth/register",
-          "protocol": "http",
+          "raw": "{{BASE_URL}}/auth/register",
           "host": [
-            "localhost"
+            "{{BASE_URL}}"
           ],
-          "port": "4000",
           "path": [
-            "api",
-            "v1",
             "auth",
             "register"
           ]
@@ -40,12 +36,27 @@
     },
     {
       "name": "Login API",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "exec": [
+              "const data = pm.response.json();\r",
+              "\r",
+              "pm.collectionVariables.set(\"token\", data.token);"
+            ],
+            "type": "text/javascript",
+            "packages": {},
+            "requests": {}
+          }
+        }
+      ],
       "request": {
         "method": "POST",
         "header": [],
         "body": {
           "mode": "raw",
-          "raw": "{\r\n  \"email\": \"mh1@gmail.com\",\r\n  \"password\": \"15/K2c7An45whQ6\"\r\n}",
+          "raw": "{\r\n  \"email\": \"happy123@example.com\",\r\n  \"password\": \"987456\"\r\n}",
           "options": {
             "raw": {
               "language": "json"
@@ -53,15 +64,11 @@
           }
         },
         "url": {
-          "raw": "http://localhost:4000/api/v1/auth/login",
-          "protocol": "http",
+          "raw": "{{BASE_URL}}/auth/login",
           "host": [
-            "localhost"
+            "{{BASE_URL}}"
           ],
-          "port": "4000",
           "path": [
-            "api",
-            "v1",
             "auth",
             "login"
           ]
@@ -71,12 +78,43 @@
     },
     {
       "name": "Create Task API",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "exec": [
+              "const data = pm.response.json();\r",
+              "\r",
+              "pm.collectionVariables.set(\"taskId\", data.data._id);"
+            ],
+            "type": "text/javascript",
+            "packages": {},
+            "requests": {}
+          }
+        },
+        {
+          "listen": "prerequest",
+          "script": {
+            "exec": [
+              "const token = pm.collectionVariables.get(\"token\");\r",
+              "\r",
+              "pm.request.headers.upsert({\r",
+              "    key: \"Authorization\",\r",
+              "    value: `Bearer ${token}`\r",
+              "});"
+            ],
+            "type": "text/javascript",
+            "packages": {},
+            "requests": {}
+          }
+        }
+      ],
       "request": {
         "method": "POST",
         "header": [
           {
             "key": "Authorization",
-            "value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjZhMGY0ZGViZTE4ODI0YTMxYmYwY2JlZiIsImVtYWlsIjoibWgxQGdtYWlsLmNvbSIsInJvbGUiOiJ1c2VyIiwiaWF0IjoxNzc5Mzg4NTg0LCJleHAiOjE3NzkzOTU3ODR9.Gb3aWumDqWvgARlIQgugbNRhSgygVZA7GDcfOten9LU",
+            "value": "Bearer {{token}}",
             "type": "text"
           },
           {
@@ -95,15 +133,11 @@
           }
         },
         "url": {
-          "raw": "http://localhost:4000/api/v1/tasks",
-          "protocol": "http",
+          "raw": "{{BASE_URL}}/tasks",
           "host": [
-            "localhost"
+            "{{BASE_URL}}"
           ],
-          "port": "4000",
           "path": [
-            "api",
-            "v1",
             "tasks"
           ]
         }
@@ -117,7 +151,7 @@
         "header": [
           {
             "key": "Authorization",
-            "value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjZhMGY0ZGViZTE4ODI0YTMxYmYwY2JlZiIsImVtYWlsIjoibWgxQGdtYWlsLmNvbSIsInJvbGUiOiJ1c2VyIiwiaWF0IjoxNzc5Mzg4NTg0LCJleHAiOjE3NzkzOTU3ODR9.Gb3aWumDqWvgARlIQgugbNRhSgygVZA7GDcfOten9LU",
+            "value": "Bearer {{token}}",
             "type": "text"
           },
           {
@@ -127,15 +161,11 @@
           }
         ],
         "url": {
-          "raw": "http://localhost:4000/api/v1/tasks",
-          "protocol": "http",
+          "raw": "{{BASE_URL}}/tasks",
           "host": [
-            "localhost"
+            "{{BASE_URL}}"
           ],
-          "port": "4000",
           "path": [
-            "api",
-            "v1",
             "tasks"
           ]
         }
@@ -149,7 +179,7 @@
         "header": [
           {
             "key": "Authorization",
-            "value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjZhMGY0ZGViZTE4ODI0YTMxYmYwY2JlZiIsImVtYWlsIjoibWgxQGdtYWlsLmNvbSIsInJvbGUiOiJ1c2VyIiwiaWF0IjoxNzc5Mzg4NTg0LCJleHAiOjE3NzkzOTU3ODR9.Gb3aWumDqWvgARlIQgugbNRhSgygVZA7GDcfOten9LU",
+            "value": "Bearer {{token}}",
             "type": "text"
           },
           {
@@ -159,23 +189,13 @@
           }
         ],
         "url": {
-          "raw": "http://localhost:4000/api/v1/tasks/:id",
-          "protocol": "http",
+          "raw": "{{BASE_URL}}/tasks/{{taskId}}",
           "host": [
-            "localhost"
+            "{{BASE_URL}}"
           ],
-          "port": "4000",
           "path": [
-            "api",
-            "v1",
             "tasks",
-            ":id"
-          ],
-          "variable": [
-            {
-              "key": "id",
-              "value": "6a0f50f5ceda17941b9614e9"
-            }
+            "{{taskId}}"
           ]
         }
       },
@@ -188,7 +208,7 @@
         "header": [
           {
             "key": "Authorization",
-            "value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjZhMGY0ZGViZTE4ODI0YTMxYmYwY2JlZiIsImVtYWlsIjoibWgxQGdtYWlsLmNvbSIsInJvbGUiOiJ1c2VyIiwiaWF0IjoxNzc5Mzg4NTg0LCJleHAiOjE3NzkzOTU3ODR9.Gb3aWumDqWvgARlIQgugbNRhSgygVZA7GDcfOten9LU",
+            "value": "Bearer {{token}}",
             "type": "text"
           },
           {
@@ -199,7 +219,7 @@
         ],
         "body": {
           "mode": "raw",
-          "raw": "{\r\n  \"title\": \"Updated title\",\r\n  \"status\": \"completed\"\r\n}",
+          "raw": "{\r\n    \"status\": \"in-progress\"\r\n}",
           "options": {
             "raw": {
               "language": "json"
@@ -207,23 +227,13 @@
           }
         },
         "url": {
-          "raw": "http://localhost:4000/api/v1/tasks/:id",
-          "protocol": "http",
+          "raw": "{{BASE_URL}}/tasks/{{taskId}}",
           "host": [
-            "localhost"
+            "{{BASE_URL}}"
           ],
-          "port": "4000",
           "path": [
-            "api",
-            "v1",
             "tasks",
-            ":id"
-          ],
-          "variable": [
-            {
-              "key": "id",
-              "value": "6a0f50f5ceda17941b9614e9"
-            }
+            "{{taskId}}"
           ]
         }
       },
@@ -236,7 +246,7 @@
         "header": [
           {
             "key": "Authorization",
-            "value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjZhMGY0ZGViZTE4ODI0YTMxYmYwY2JlZiIsImVtYWlsIjoibWgxQGdtYWlsLmNvbSIsInJvbGUiOiJ1c2VyIiwiaWF0IjoxNzc5Mzg4NTg0LCJleHAiOjE3NzkzOTU3ODR9.Gb3aWumDqWvgARlIQgugbNRhSgygVZA7GDcfOten9LU",
+            "value": "Bearer {{token}}",
             "type": "text"
           },
           {
@@ -246,27 +256,55 @@
           }
         ],
         "url": {
-          "raw": "http://localhost:4000/api/v1/tasks/:id",
-          "protocol": "http",
+          "raw": "{{BASE_URL}}/tasks/{{taskId}}",
           "host": [
-            "localhost"
+            "{{BASE_URL}}"
           ],
-          "port": "4000",
           "path": [
-            "api",
-            "v1",
             "tasks",
-            ":id"
-          ],
-          "variable": [
-            {
-              "key": "id",
-              "value": "6a0f50f5ceda17941b9614e9"
-            }
+            "{{taskId}}"
           ]
         }
       },
       "response": []
+    }
+  ],
+  "event": [
+    {
+      "listen": "prerequest",
+      "script": {
+        "type": "text/javascript",
+        "packages": {},
+        "requests": {},
+        "exec": [
+          ""
+        ]
+      }
+    },
+    {
+      "listen": "test",
+      "script": {
+        "type": "text/javascript",
+        "packages": {},
+        "requests": {},
+        "exec": [
+          ""
+        ]
+      }
+    }
+  ],
+  "variable": [
+    {
+      "key": "BASE_URL",
+      "value": ""
+    },
+    {
+      "key": "token",
+      "value": ""
+    },
+    {
+      "key": "taskId",
+      "value": ""
     }
   ]
 }
