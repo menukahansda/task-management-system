@@ -33,13 +33,27 @@ A simple React frontend is included to:
 ## Screenshots
 Below are sample screenshots from the application:
 
+### Sign Up pages
 ![Sign-up page](screenshots/sign-up-page.png)
 ![Unsuccessful Registration](screenshots/unsuccessful-reg.png)
 ![Successful Registration](screenshots/successful-reg.png)
-<!-- ![Unsuccessful Login](screenshots/unsuccessful-login.png) -->
-![Successful Login](screenshots/successful-login.png)
-![Dashboard](screenshots/dashboard.png)
 
+### Login pages
+![Unsuccessful Login](screenshots/unsuccessful-login.png)
+![Successful Login](screenshots/successful-login.png)
+
+### Dashboard
+![Dashboard](screenshots/dashboard.png)
+![Dashboard-2](screenshots/dashboard-2.png)
+
+### Edit options
+![Edit-1](screenshots/edit-1.png)
+![Edit-2](screenshots/edit-2.png)
+![Edit-3](screenshots/edit-3.png)
+![Edit-4](screenshots/edit-4.png)
+
+### Delete options
+![Delete](screenshots/delete.png)
 ---
 
 ## Project Structure
