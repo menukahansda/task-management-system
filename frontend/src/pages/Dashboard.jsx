@@ -40,8 +40,16 @@ export default function Dashboard() {
       console.error("Delete failed:", err);
     }
   };
-  const handleEdit = (task) => {
-    console.log("Edit clicked:", task);
+  const handleEdit = async (updatedTask) => {
+    console.log("Edit clicked:", updatedTask);
+    try{
+      const res = await api.put(`/tasks/${updatedTask._id}`, updatedTask);
+      setTasks((prev) =>
+        prev.map((task) => (task._id === updatedTask._id ? res.data : task))
+      );
+    }catch(err){
+      console.error("Update failed:", err);
+    }
   };
   return (
     <div className="p-6 bg-gray-100 min-h-screen">
