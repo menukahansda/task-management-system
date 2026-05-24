@@ -6,6 +6,12 @@ It provides secure authentication, role-based authorization, and CRUD operations
 A simple React frontend is included to interact with the backend APIs.
 
 ---
+## Live Demo
+
+- [Frontend Live Demo](https://taskms-app.netlify.app/)
+- [Backend API](https://task-management-system-joco.onrender.com/)
+
+---
 
 ## Backend Features
 - User Registration & Login APIs
