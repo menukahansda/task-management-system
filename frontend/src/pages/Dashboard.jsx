@@ -32,6 +32,7 @@ export default function Dashboard() {
     }
   };
   const handleDelete = async (id) => {
+    console.log("Delete clicked for ID:", id);
     try {
       await api.delete(`/tasks/${id}`);
 
